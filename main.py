@@ -25,3 +25,15 @@ def update_taste(data: dict):
     }
     requests.post(url, json=payload)
     return {"status": "success", "message": "Data secured in Vault"}
+
+
+@app.get("/test")
+def test_vault():
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    payload = {
+        "chat_id": CHANNEL_ID,
+        "text": "Test message! The Render bridge is working perfectly."
+    }
+    requests.post(url, json=payload)
+    return {"status": "Test fired! Check Telegram."}
+
